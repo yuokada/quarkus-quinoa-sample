@@ -43,7 +43,7 @@ function TodoApp() {
                 <li key={todo.id}>
                   {todo.title} | {todo.description}
                   <button>Delete</button>
-                  <button>Mark as Completed</button>
+                  <button onChange={completedTodo(todo.id)}>Mark as Completed</button>
                 </li>
             ))}
           </ul>
@@ -65,6 +65,40 @@ function TodoApp() {
 
     setTodos([...todos, newTodoItem]); // 新しいTodoをリストに追加
     setNewTodo(''); // 入力フィールドをクリア
+  };
+
+  const completedTodo = (id) => {
+    console.info("completedTodo: id=" + id);
+    // const fetchData = async () => {
+    //   try {
+    //     // build a post request to '/api/v1/todos/{id}/complete'
+    //
+    //     const response = await fetch('/api/v1/todos/'+ id+ '/complete',{
+    //       method: 'PUT',
+    //       headers: {
+    //         'Content-Type': 'application/json',
+    //       },
+    //     });
+    //     if (!response.ok) {
+    //       throw new Error('Network response was not ok');
+    //     }
+    //     const data = await response.json();
+    //     setTodos(data);
+    //     setLoading(false);
+    //   } catch (error) {
+    //     setError(error);
+    //     setLoading(false);
+    //   }
+    // };
+    // fetchData();
+
+    // const newTodos = todos.map(todo => {
+    //   if (todo.id === id) {
+    //     todo.completed = true;
+    //   }
+    //   return todo;
+    // });
+    // setTodos(newTodos);
   };
 
   return (

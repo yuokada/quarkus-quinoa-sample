@@ -21,7 +21,9 @@ public class TodoApplicationImpl implements
 
     @Override
     public Response getListOfTodo() {
-        List<TodoDetail> todos = todoList.values().stream().filter(t -> !t.done()).toList();
+        List<TodoDetail> todos = todoList.values()
+            .stream()
+            .filter(t -> !t.done()).toList();
         return Response.ok(todos).build();
     }
 
