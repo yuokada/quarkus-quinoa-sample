@@ -8,13 +8,6 @@ const user = {
   imageSize: 90,
 };
 
-const products = [
-  {title: 'Cabbage', isFruit: false, id: 1},
-  {title: 'Garlic', isFruit: false, id: 2},
-  {title: 'Apple', isFruit: true, id: 3},
-  {title: 'Apple II', isFruit: true, id: 4},
-];
-
 function MyButton({count, onClick}) {
   return (
       <button onClick={onClick}>Clicked {count} times</button>
