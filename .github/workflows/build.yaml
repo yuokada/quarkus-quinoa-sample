@@ -31,5 +31,15 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: src/main/webui/package-lock.json
+      - name: Npm run build
+        # To see eslint errors, run `npm run lint` instead of `npm run build`
+        run: cd src/main/webui && npm install && npm run build
+      - name: Maven Version
+        run: mvn --version
       - name: Build with Maven
         run: ./mvnw -B package --file pom.xml
