@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import {useState} from "react";
 
@@ -15,22 +14,16 @@ function MyButton({count, onClick}) {
 }
 
 function App() {
-  const [count , setCount] = useState(0);
-  function handleCLick(){
+  const [count, setCount] = useState(0);
+
+  function handleCLick() {
     setCount(count + 1);
   }
 
   return (
       <div className="App">
-        <MyButton count={count} onClick={handleCLick}/>
-        <br/>
-        <MyButton count={count} onClick={handleCLick}/>
-        <h1>Hello {user.name}!</h1>
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo"/>
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
+          <p>Edit <code>src/App.js</code> and save to reload.</p>
           <a
               className="App-link"
               href="https://ja.react.dev/"
@@ -39,9 +32,6 @@ function App() {
           >
             Learn React
           </a>
-          <br/>
-          <a href={"https://www.yahoo.co.jp"}>Yahoo! Japan</a>
-          <br/>
         </header>
       </div>
   );

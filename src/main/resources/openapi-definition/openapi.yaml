@@ -1,0 +1,181 @@
+---
+openapi: 3.0.3
+info:
+  title: quarkus-quinoa-application API
+  version: 1.0-SNAPSHOT
+servers:
+- url: http://localhost:8080
+  description: Auto generated value
+- url: http://0.0.0.0:8080
+  description: Auto generated value
+paths:
+  /api/v1:
+    post:
+      tags:
+      - Callback Resource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+      responses:
+        "200":
+          description: OK
+  /api/v1/todos:
+    get:
+      summary: Return a list of todos
+      description: Return a list of todos
+      responses:
+        "200":
+          description: Returns a list of todos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TodoDetail"
+    post:
+      summary: Create a new todo
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TodoCreateRequest"
+      responses:
+        "201":
+          description: Returns a new todos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    format: int64
+                    type: integer
+                  title:
+                    type: string
+                  description:
+                    type: string
+                  done:
+                    type: boolean
+  /api/v1/todos/{id}:
+    get:
+      summary: Return a list of todos
+      description: Return a list of todos
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: Returns a list of todos
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    format: int64
+                    type: integer
+                  title:
+                    type: string
+                  description:
+                    type: string
+                  done:
+                    type: boolean
+    put:
+      summary: Update an existing todo
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TodoDetail"
+      responses:
+        "200":
+          description: Returns an updated todo
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    format: int64
+                    type: integer
+                  title:
+                    type: string
+                  description:
+                    type: string
+                  done:
+                    type: boolean
+    delete:
+      summary: Delete an existing todo
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "204":
+          description: Returns an updated todo
+  /api/v1/todos/{id}/complete:
+    put:
+      summary: Complete an existing todo
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          format: int64
+          type: integer
+      responses:
+        "200":
+          description: Complete an existing todo
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    format: int64
+                    type: integer
+                  title:
+                    type: string
+                  description:
+                    type: string
+                  done:
+                    type: boolean
+components:
+  schemas:
+    TodoCreateRequest:
+      required:
+      - title
+      type: object
+      properties:
+        title:
+          maxLength: 32
+          pattern: \S
+          type: string
+    TodoDetail:
+      type: object
+      properties:
+        id:
+          format: int64
+          type: integer
+        title:
+          type: string
+        description:
+          type: string
+        done:
+          type: boolean

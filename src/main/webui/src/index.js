@@ -4,12 +4,13 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import UserList from "./UserList";
+import TodoApp from "./TodoApp";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
-    <UserList />
+    <TodoApp />
+    {/*<App />*/}
   </React.StrictMode>
 );
 
