@@ -19,9 +19,7 @@ updates:
       day: "saturday"
       time: "07:00"
       timezone: "Asia/Tokyo"
-    reviewers:
-      - "yuokada"
     groups:
       quarkus-dependencies:
         patterns:
-          - "io.quarkus:*"    
+          - "io.quarkus:*"
